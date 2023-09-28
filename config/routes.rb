@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
   
-  devise_for :users
+  # devise_for :users
+  devise_for :users, path: '', path_names: {
+    sign_in: 'login',
+    sign_out: 'logout',
+    password: 'secret',
+    confirmation: 'verification',
+    unlock: 'unblock',
+    registration: '',
+    sign_up: 'register'
+  }
   resources :blog_posts
 
   # get "/blog_posts/new", to: "blog_posts#new", as: :new_blog_post
