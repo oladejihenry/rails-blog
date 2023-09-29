@@ -4,7 +4,7 @@ class BlogPostsController < ApplicationController
     
     #index 
     def index
-        @blog_posts = BlogPost.published
+        @blog_posts = user_signed_in? ? BlogPost.sorted : BlogPost.published.sorted
     end
 
     #show 
